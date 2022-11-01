@@ -3,6 +3,7 @@ import express from "express";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import userRoutes from "./src/routes/user.route.js";
+import tweetRoutes from "./src/routes/tweet.route.js";
 
 export function startServer() {
   const app = express();
@@ -35,7 +36,7 @@ export function startServer() {
     next();
   });
   app.use("/users", userRoutes);
-
+  app.use("/tweets", tweetRoutes);
 
   app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);

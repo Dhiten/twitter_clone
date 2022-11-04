@@ -7,6 +7,9 @@ export async function createLike(body) {
         tweetId,
         userId,
     });
+    const tweet = await Like.findById(tweetId);
+    tweet.likes += 1;
+    await tweet.save();
     return like;
 }
 
